@@ -20,7 +20,7 @@ public class Author extends Person {
     @Column(nullable = false)
     private Integer age;
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
-    private SLiteraryType sLiteraryType;
+    private SettingLiteraryType settingLiteraryType;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.DETACH)
     private List<Book> books;
 }

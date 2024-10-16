@@ -13,25 +13,25 @@ import org.springframework.stereotype.Service;
 public class AuthorService {
     private final AuthorRepository authorRepository;
     private final AuthorMapper authorMapper;
-    private final SLiteraryTypeService sLiteraryTypeService;
+    private final SettingLiteraryTypeService settingLiteraryTypeService;
     private final BookService bookService;
 
     public AuthorService(
             AuthorRepository authorRepository,
             AuthorMapper authorMapper,
-            SLiteraryTypeService sLiteraryTypeService,
+            SettingLiteraryTypeService settingLiteraryTypeService,
             BookService bookService
             ) {
         this.authorRepository = authorRepository;
         this.authorMapper = authorMapper;
-        this.sLiteraryTypeService = sLiteraryTypeService;
+        this.settingLiteraryTypeService = settingLiteraryTypeService;
         this.bookService = bookService;
     }
 
     public AuthorDTO createAuthor(AuthorCreationDTO authorCreation) {
         Author author = authorMapper.toEntity(authorCreation);
-        if(authorCreation.getSLiteraryTypeEnum() != null) {
-            author.setSLiteraryType(sLiteraryTypeService.findByEnum(authorCreation.getSLiteraryTypeEnum()));
+        if(authorCreation.getSettingLiteraryTypeEnum() != null) {
+            author.setSettingLiteraryType(settingLiteraryTypeService.findByEnum(authorCreation.getSettingLiteraryTypeEnum()));
         }
         if(authorCreation.getBooksId() != null && !authorCreation.getBooksId().isEmpty()) {
             author.setBooks(this.bookService.findAllByIds(authorCreation.getBooksId()));

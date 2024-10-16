@@ -11,7 +11,7 @@ import org.hibernate.annotations.Immutable;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "s_literary_type")
+@Table(name = "setting_literary_type")
 @Immutable
-public class SLiteraryType extends AbstractSModel {
+public class SettingLiteraryType extends AbstractSettingModel {
 }

@@ -1,7 +1,7 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.SLiteraryTypeDTO;
-import mael.simplecodebase.model.SLiteraryType;
+import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
+import mael.simplecodebase.model.SettingLiteraryType;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
@@ -10,5 +10,5 @@ import org.mapstruct.ReportingPolicy;
         componentModel = MappingConstants.ComponentModel.SPRING,
         unmappedTargetPolicy = ReportingPolicy.ERROR
 )
-public interface SLiteraryTypeMapper extends AbstractSModelMapper<SLiteraryType, SLiteraryTypeDTO> {
+public interface SettingLiteraryTypeMapper extends AbstractSModelMapper<SettingLiteraryType, SettingLiteraryTypeDTO> {
 }

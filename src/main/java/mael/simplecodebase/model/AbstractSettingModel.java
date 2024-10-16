@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class AbstractSModel {
+public abstract class AbstractSettingModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

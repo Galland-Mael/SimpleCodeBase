@@ -1,4 +1,4 @@
-INSERT INTO s_literary_type (code, label)
+INSERT INTO setting_literary_type (code, label)
 VALUES
     ( 'FICTION', 'Fiction'),
     ( 'POETRY', 'Poetry'),

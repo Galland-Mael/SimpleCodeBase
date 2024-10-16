@@ -1,7 +1,6 @@
 package mael.simplecodebase.dto.author;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import mael.simplecodebase.dto.person.PersonCreationDTO;
@@ -17,8 +16,8 @@ public class AuthorCreationDTO extends PersonCreationDTO {
     @NotNull
     @NotBlank
     private Integer age;
-    // Here because jackson have probleme to deserialize
-    @JsonProperty("sLiteraryTypeEnum")
-    private SLiteraryTypeEnum sLiteraryTypeEnum;
+    private SLiteraryTypeEnum settingLiteraryTypeEnum;
     private List<Long> booksId;
+
+
 }

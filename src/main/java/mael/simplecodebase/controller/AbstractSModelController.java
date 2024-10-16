@@ -1,11 +1,11 @@
 package mael.simplecodebase.controller;
-import mael.simplecodebase.service.AbstractSModelService;
+import mael.simplecodebase.service.AbstractSettingModelService;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
 public abstract class AbstractSModelController<
-        S extends AbstractSModelService<?, ?, ?, ?, ?>> {
+        S extends AbstractSettingModelService<?, ?, ?, ?, ?>> {
 
     protected final S baseService;
 

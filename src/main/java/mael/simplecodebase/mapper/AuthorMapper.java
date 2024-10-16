@@ -13,7 +13,7 @@ import org.mapstruct.ReportingPolicy;
         componentModel = MappingConstants.ComponentModel.SPRING,
         unmappedTargetPolicy = ReportingPolicy.ERROR,
         uses = {
-                SLiteraryTypeMapper.class,
+                SettingLiteraryTypeMapper.class,
                 BookMapper.class
         }
 )
@@ -28,7 +28,7 @@ public interface AuthorMapper {
 
     // AuthorCreationDTO
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "SLiteraryType", ignore = true)
+    @Mapping(target = "settingLiteraryType", ignore = true)
     @Mapping(target = "books", ignore = true)
     Author toEntity(AuthorCreationDTO source);
 }
