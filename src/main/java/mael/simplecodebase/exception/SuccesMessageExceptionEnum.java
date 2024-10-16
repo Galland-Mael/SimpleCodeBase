@@ -8,7 +8,9 @@ import lombok.Getter;
 public enum SuccesMessageExceptionEnum implements MessageException {
     CREATED("Created"),
     UPDATED("Updated"),
-    DELETED("Deleted");
+    DELETED("Deleted"),
+
+    AUTHOR_CREATED("Author created successfully");
 
     private String message;
 }

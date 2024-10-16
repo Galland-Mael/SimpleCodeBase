@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class AuthorLightDTO extends PersonDTO {
     private Integer age;
-    private SLiteraryTypeDTO literaryGenre;
+    private SLiteraryTypeDTO sLiteraryType;
 }

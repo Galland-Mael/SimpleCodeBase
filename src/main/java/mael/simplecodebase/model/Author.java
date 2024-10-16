@@ -17,7 +17,7 @@ import java.util.List;
 public class Author extends Person {
     private Integer age;
     @ManyToOne(fetch = FetchType.LAZY)
-    private SLiteraryType literaryGenre;
+    private SLiteraryType sLiteraryType;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     private List<Book> books;
 }
