@@ -1,1 +1,1 @@
-CREATE DATABASE vault;
+CREATE DATABASE library;

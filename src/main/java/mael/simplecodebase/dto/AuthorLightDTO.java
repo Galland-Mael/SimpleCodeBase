@@ -1,12 +1,11 @@
 package mael.simplecodebase.dto;
 
-import mael.simplecodebase.model.Book;
-import mael.simplecodebase.model.SLiteraryGenre;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
-
-public class AuthorDTO extends PersonneDTO {
+@Getter
+@Setter
+public class AuthorLightDTO extends PersonDTO {
     private Integer age;
-    private SLiteraryGenre literaryGenre;
-    private List<Book> books;
+    private SLiteraryTypeDTO literaryGenre;
 }

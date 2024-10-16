@@ -1,4 +1,4 @@
-CREATE TABLE s_literary_genre
+CREATE TABLE s_literary_type
 (
     id   BIGINT PRIMARY KEY,
     code VARCHAR(50) NOT NULL,

@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Getter
 @MappedSuperclass
-public abstract class AsbtractSModel {
+public abstract class AbstractSModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

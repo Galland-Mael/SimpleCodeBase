@@ -1,6 +1,6 @@
-CREATE TABLE author (
-  id BIGINT PRIMARY KEY,
-  first_name VARCHAR(255) NOT NULL,
-  last_name VARCHAR(255) NOT NULL,
-  age INT NOT NULL
+CREATE TABLE person
+(
+    id        BIGINT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    name      VARCHAR(255) NOT NULL
 );

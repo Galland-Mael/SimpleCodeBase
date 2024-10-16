@@ -1,4 +1,13 @@
 package mael.simplecodebase.dto;
 
-public class AuthorDTO {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public abstract class AbstractSModelDTO {
+    private Long id;
+    private String code;
+    private String label;
+
 }

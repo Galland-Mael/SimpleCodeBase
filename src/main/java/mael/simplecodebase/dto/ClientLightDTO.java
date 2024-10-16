@@ -3,11 +3,9 @@ package mael.simplecodebase.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 
 @Getter
 @Setter
-public class ClientDTO {
+public class ClientLightDTO extends PersonDTO {
     private String email;
-    private List<LibraryLightDTO> libraries;
 }

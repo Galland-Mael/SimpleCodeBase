@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class PersonneDTO {
+public abstract class PersonDTO {
     private Long id;
     private String firstname;
     private String name;
