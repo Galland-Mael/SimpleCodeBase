@@ -1,21 +1,28 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.BookDTO;
-import mael.simplecodebase.dto.BookLightDTO;
-import mael.simplecodebase.model.Book;
+import mael.simplecodebase.dto.LibraryDTO;
+import mael.simplecodebase.dto.LibraryLightDTO;
+import mael.simplecodebase.model.Library;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(
         componentModel = MappingConstants.ComponentModel.SPRING,
-        unmappedTargetPolicy = ReportingPolicy.ERROR
+        unmappedTargetPolicy = ReportingPolicy.ERROR,
+        uses = {
+                ClientMapper.class,
+                BookMapper.class
+        }
 )
-public interface BookMapper {
+public interface LibraryMapper {
     // DTO
-    Book toEntity(BookDTO source);
-    BookDTO toDTO(Book source);
+    Library toEntity(LibraryDTO source);
+    LibraryDTO toDTO(Library source);
     // LightDTO
-    Book toEntity(BookLightDTO source);
-    BookLightDTO toLightDTO(Book source);
+    @Mapping(target = "clients", ignore = true)
+    @Mapping(target = "books", ignore = true)
+    Library toEntity(LibraryLightDTO source);
+    LibraryLightDTO toLightDTO(Library source);
 }

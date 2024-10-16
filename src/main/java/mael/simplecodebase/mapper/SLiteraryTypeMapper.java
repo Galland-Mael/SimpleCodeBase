@@ -1,4 +1,14 @@
 package mael.simplecodebase.mapper;
 
-public interface SLiteraryGenreMapper {
+import mael.simplecodebase.dto.SLiteraryTypeDTO;
+import mael.simplecodebase.model.SLiteraryType;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.ReportingPolicy;
+
+@Mapper(
+        componentModel = MappingConstants.ComponentModel.SPRING,
+        unmappedTargetPolicy = ReportingPolicy.ERROR
+)
+public interface SLiteraryTypeMapper extends AbstractSModelMapper<SLiteraryType, SLiteraryTypeDTO> {
 }
