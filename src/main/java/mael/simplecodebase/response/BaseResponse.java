@@ -1,13 +1,17 @@
 package mael.simplecodebase.response;
 
-import mael.simplecodebase.exception.MessageException;
+import lombok.Getter;
+import lombok.Setter;
+import mael.simplecodebase.exception.SuccesMessageEnum;
 
+@Getter
+@Setter
 public class BaseResponse<T> {
-    private MessageException message;
+    private String message;
     private T data;
 
-    public BaseResponse(MessageException message, T data) {
-        this.message = message;
+    public BaseResponse(SuccesMessageEnum message, T data) {
+        this.message = message.getMessage();
         this.data = data;
     }
 

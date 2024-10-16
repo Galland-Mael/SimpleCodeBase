@@ -2,7 +2,7 @@ package mael.simplecodebase.service;
 
 import mael.simplecodebase.enumeration.SLiteraryTypeEnum;
 import mael.simplecodebase.dto.SLiteraryTypeDTO;
-import mael.simplecodebase.exception.ErrorMessageExceptionEnum;
+import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.SLiteraryTypeMapper;
 import mael.simplecodebase.model.SLiteraryType;
 import mael.simplecodebase.repository.SLiteraryTypeRepository;
@@ -24,8 +24,8 @@ public class SLiteraryTypeService extends AbstractSModelService<
     }
 
     @Override
-    public ErrorMessageExceptionEnum notFoundMessage() {
-        return ErrorMessageExceptionEnum.S_LITERAL_TYPE_NOT_FOUND;
+    public ErrorMessageEnum notFoundMessage() {
+        return ErrorMessageEnum.S_LITERAL_TYPE_NOT_FOUND;
     }
 
 

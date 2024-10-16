@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ErrorMessageExceptionEnum implements MessageException {
+public enum ErrorMessageEnum implements Message {
     NOT_FOUND("Not Found"),
     INTERNAL_SERVER_ERROR("Internal Server Error"),
     BAD_REQUEST("Bad Request"),

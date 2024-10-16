@@ -5,9 +5,9 @@ import mael.simplecodebase.model.AbstractSModel;
 
 import java.util.List;
 
-public interface AbstractSModelMapper<T extends AbstractSModel, T1 extends AbstractSModelDTO> {
-    T toEntity(T1 source);
-    T1 toDTO(T source);
-    List<T> toEntity(List<T1> source);
-    List<T1> toListDTO(List<T> source);
+public interface AbstractSModelMapper<E extends AbstractSModel,D extends AbstractSModelDTO> {
+    E toEntity(D source);
+    D toDTO(E source);
+    List<E> toEntity(List<D> source);
+    List<D> toListDTO(List<E> source);
 }

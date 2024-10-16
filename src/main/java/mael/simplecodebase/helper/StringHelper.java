@@ -1,6 +1,6 @@
 package mael.simplecodebase.helper;
 
-import mael.simplecodebase.exception.MessageException;
+import mael.simplecodebase.exception.Message;
 
 public final class StringHelper {
 
@@ -9,7 +9,7 @@ public final class StringHelper {
         throw new IllegalStateException("Utility class");
     }
 
-    public static String format(MessageException messageExceptionEnum, Object... args) {
-        return String.format(messageExceptionEnum.getMessage() , args);
+    public static String format(Message messageEnum, Object... args) {
+        return String.format(messageEnum.getMessage() , args);
     }
 }

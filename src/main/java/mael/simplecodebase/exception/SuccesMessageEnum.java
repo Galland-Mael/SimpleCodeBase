@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum SuccesMessageExceptionEnum implements MessageException {
+public enum SuccesMessageEnum implements Message {
     CREATED("Created"),
     UPDATED("Updated"),
     DELETED("Deleted"),

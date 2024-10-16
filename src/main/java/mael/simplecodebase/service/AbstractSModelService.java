@@ -4,7 +4,7 @@ package mael.simplecodebase.service;
 import mael.simplecodebase.enumeration.CodeEnum;
 import mael.simplecodebase.dto.AbstractSModelDTO;
 import mael.simplecodebase.exception.ApiException;
-import mael.simplecodebase.exception.ErrorMessageExceptionEnum;
+import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.AbstractSModelMapper;
 import mael.simplecodebase.model.AbstractSModel;
 import mael.simplecodebase.repository.AbstractSModelRepository;
@@ -23,7 +23,7 @@ public abstract class AbstractSModelService<Entity extends AbstractSModel, Dto e
         this.baseMapper = baseMapper;
     }
 
-    public abstract ErrorMessageExceptionEnum notFoundMessage();
+    public abstract ErrorMessageEnum notFoundMessage();
 
 
     public Entity findByCode(String code) {
