@@ -17,8 +17,8 @@ import java.util.List;
 @Table(name = "author")
 public class Author extends Person {
     private Integer age;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
     private SLiteraryType sLiteraryType;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.DETACH)
     private List<Book> books;
 }
