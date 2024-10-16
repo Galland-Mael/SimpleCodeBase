@@ -1,6 +1,7 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.AuthorDTO;
+import mael.simplecodebase.dto.author.AuthorCreationDTO;
+import mael.simplecodebase.dto.author.AuthorDTO;
 import mael.simplecodebase.dto.AuthorLightDTO;
 import mael.simplecodebase.model.Author;
 import org.mapstruct.Mapper;
@@ -24,4 +25,10 @@ public interface AuthorMapper {
     @Mapping(target = "books", ignore = true)
     Author toEntity(AuthorLightDTO source);
     AuthorLightDTO toLightDTO(Author source);
+
+    // AuthorCreationDTO
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "SLiteraryType", ignore = true)
+    @Mapping(target = "books", ignore = true)
+    Author toEntity(AuthorCreationDTO source);
 }

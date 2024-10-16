@@ -1,9 +1,12 @@
-package mael.simplecodebase.dto;
+package mael.simplecodebase.dto.author;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import mael.simplecodebase.dto.BookLightDTO;
+import mael.simplecodebase.dto.person.PersonDTO;
+import mael.simplecodebase.dto.SLiteraryTypeDTO;
 
 import java.util.List;
 
