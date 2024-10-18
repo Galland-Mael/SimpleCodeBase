@@ -1,18 +1,24 @@
 package mael.simplecodebase.dto.book;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import mael.simplecodebase.dto.AuthorLightDTO;
+import mael.simplecodebase.dto.author.AuthorLightDTO;
 import mael.simplecodebase.dto.LibraryLightDTO;
 import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
+import mael.simplecodebase.validator.annotation.BookConstraint;
 
-import javax.validation.constraints.NotNull;
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
-public class BookDTO {
+@BookConstraint
+public class BookDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private Long id;
     @NotNull
     private String title;

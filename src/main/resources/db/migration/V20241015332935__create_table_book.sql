@@ -4,7 +4,7 @@ CREATE TABLE book
     title            VARCHAR(255)                                        NOT NULL,
     description      TEXT,
     publication_date DATE                                                NOT NULL,
-    writing_date    DATE                                                NOT NULL,
+    writting_date    DATE                                                NOT NULL,
     setting_literary_type_id BIGINT NOT NULL,
     author_id        BIGINT         NOT NULL,
     FOREIGN KEY (setting_literary_type_id) REFERENCES setting_literary_type (id),

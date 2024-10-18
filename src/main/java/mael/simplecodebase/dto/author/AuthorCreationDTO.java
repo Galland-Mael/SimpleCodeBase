@@ -1,20 +1,21 @@
 package mael.simplecodebase.dto.author;
 
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import mael.simplecodebase.dto.person.PersonCreationDTO;
-import mael.simplecodebase.enumeration.SettingLiteraryTypeEnum;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
-public class AuthorCreationDTO extends PersonCreationDTO {
+public class AuthorCreationDTO extends PersonCreationDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     @NotNull
-    @NotBlank
     private Integer age;
     private List<Long> booksId;
 }

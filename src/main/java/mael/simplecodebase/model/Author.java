@@ -18,6 +18,6 @@ import java.util.List;
 public class Author extends Person {
     @Column(nullable = false)
     private Integer age;
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.DETACH)
     private List<Book> books;
 }

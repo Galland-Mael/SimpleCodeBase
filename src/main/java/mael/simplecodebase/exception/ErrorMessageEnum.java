@@ -11,7 +11,8 @@ public enum ErrorMessageEnum implements Message {
     BAD_REQUEST("Bad Request"),
     UNAUTHORIZED("Unauthorized"),
 
-    S_LITERAL_TYPE_NOT_FOUND("SLiteraryType Not Found pour le code :  %s");
+    S_LITERAL_TYPE_NOT_FOUND("SLiteraryType Not Found code :  %s"),
+    AUTHOR_NOT_FOUND("Auhtor Not Found id :  %s");
 
     private String message;
 }

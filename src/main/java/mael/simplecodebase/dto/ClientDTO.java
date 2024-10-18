@@ -1,18 +1,23 @@
 package mael.simplecodebase.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import mael.simplecodebase.dto.person.PersonDTO;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
-public class ClientDTO extends PersonDTO {
+public class ClientDTO extends PersonDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     @NotNull
-    @Email
+    @Email(message = "Email should be valid")
     private String email;
     private List<LibraryLightDTO> libraries;
 }

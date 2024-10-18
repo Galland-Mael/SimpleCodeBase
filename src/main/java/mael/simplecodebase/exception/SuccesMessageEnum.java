@@ -10,7 +10,8 @@ public enum SuccesMessageEnum implements Message {
     UPDATED("Updated"),
     DELETED("Deleted"),
 
-    AUTHOR_CREATED("Author created successfully");
+    AUTHOR_CREATED("Author created successfully"),
+    BOOK_CREATED("Book created successfully");
 
     private String message;
 }
