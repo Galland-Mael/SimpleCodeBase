@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum SLiteraryTypeEnum implements CodeEnum {
+public enum SettingLiteraryTypeEnum implements CodeEnum {
     FICTION("FICTION"),
     POETRY("POETRY"),
     DRAMA("DRAMA"),

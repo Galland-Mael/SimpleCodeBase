@@ -8,5 +8,4 @@ import mael.simplecodebase.dto.person.PersonDTO;
 @Setter
 public class AuthorLightDTO extends PersonDTO {
     private Integer age;
-    private SettingLiteraryTypeDTO settingLiteraryType;
 }

@@ -1,7 +1,7 @@
 package mael.simplecodebase.service;
 
 import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
-import mael.simplecodebase.enumeration.SLiteraryTypeEnum;
+import mael.simplecodebase.enumeration.SettingLiteraryTypeEnum;
 import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.SettingLiteraryTypeMapper;
 import mael.simplecodebase.model.SettingLiteraryType;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class SettingLiteraryTypeService extends AbstractSettingModelService<
         SettingLiteraryType,
         SettingLiteraryTypeDTO,
-        SLiteraryTypeEnum,
+        SettingLiteraryTypeEnum,
         SettingLiteraryTypeRepository,
         SettingLiteraryTypeMapper> {
 
@@ -29,7 +29,7 @@ public class SettingLiteraryTypeService extends AbstractSettingModelService<
     }
 
 
-    public SettingLiteraryTypeDTO findByEnumInDTO(SLiteraryTypeEnum sLiteraryTypeEnum) {
-        return this.baseMapper.toDTO(this.findByEnum(sLiteraryTypeEnum));
+    public SettingLiteraryTypeDTO findByEnumInDTO(SettingLiteraryTypeEnum settingLiteraryTypeEnum) {
+        return this.baseMapper.toDTO(this.findByEnum(settingLiteraryTypeEnum));
     }
 }

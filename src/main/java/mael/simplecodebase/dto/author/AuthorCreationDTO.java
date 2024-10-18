@@ -4,7 +4,7 @@ package mael.simplecodebase.dto.author;
 import lombok.Getter;
 import lombok.Setter;
 import mael.simplecodebase.dto.person.PersonCreationDTO;
-import mael.simplecodebase.enumeration.SLiteraryTypeEnum;
+import mael.simplecodebase.enumeration.SettingLiteraryTypeEnum;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,8 +16,5 @@ public class AuthorCreationDTO extends PersonCreationDTO {
     @NotNull
     @NotBlank
     private Integer age;
-    private SLiteraryTypeEnum settingLiteraryTypeEnum;
     private List<Long> booksId;
-
-
 }

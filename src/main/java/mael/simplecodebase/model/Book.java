@@ -1,5 +1,7 @@
 package mael.simplecodebase.model;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -22,12 +24,17 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String title;
     private String description;
-    private String identifiant;
-    private LocalDate publicationYear;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(nullable = false)
+    private LocalDate publicationDate;
+    @Column(nullable = false)
+    private LocalDate writtingDate;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.DETACH, optional = false)
+    private SettingLiteraryType settingLiteraryType;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH, optional = false)
     private Author author;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
     private List<Library> libraries;
 }

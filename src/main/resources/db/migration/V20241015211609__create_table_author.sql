@@ -1,9 +1,7 @@
 CREATE TABLE author
 (
-    id  BIGINT PRIMARY KEY,
-    age INT NOT NULL,
-    setting_literary_type_id   BIGINT,
-    FOREIGN KEY (setting_literary_type_id) REFERENCES setting_literary_type (id),
+    id                       BIGINT PRIMARY KEY,
+    age                      INT NOT NULL,
     FOREIGN KEY (id) REFERENCES person (id)
 );
 

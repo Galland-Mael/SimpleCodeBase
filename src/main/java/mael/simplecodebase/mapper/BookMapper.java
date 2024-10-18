@@ -1,7 +1,7 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.BookDTO;
-import mael.simplecodebase.dto.BookLightDTO;
+import mael.simplecodebase.dto.book.BookDTO;
+import mael.simplecodebase.dto.book.BookLightDTO;
 import mael.simplecodebase.model.Book;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
