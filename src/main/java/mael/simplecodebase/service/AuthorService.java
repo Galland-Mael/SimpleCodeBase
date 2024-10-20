@@ -26,7 +26,7 @@ public class AuthorService {
             AuthorRepository authorRepository,
             AuthorMapper authorMapper,
             @Lazy BookService bookService
-            ) {
+    ) {
         this.authorRepository = authorRepository;
         this.authorMapper = authorMapper;
         this.bookService = bookService;
@@ -34,22 +34,22 @@ public class AuthorService {
 
     public AuthorDTO createAuthor(AuthorCreationDTO authorCreation) {
         Author author = authorMapper.toEntity(authorCreation);
-        if(authorCreation.getBooksId() != null && !authorCreation.getBooksId().isEmpty()) {
-            author.setBooks(this.bookService.findAllById(authorCreation.getBooksId()));
+        if (authorCreation.getBooksIds() != null && !authorCreation.getBooksIds().isEmpty()) {
+            author.setBooks(this.bookService.findAllById(authorCreation.getBooksIds()));
         }
         return authorMapper.toDTO(authorRepository.save(author));
     }
 
     public BaseResponse<AuthorDTO> createBaseResponse(AuthorCreationDTO author) {
         return new BaseResponse<>(
-                SuccesMessageEnum.AUTHOR_CREATED,
-                this.createAuthor(author)
+                this.createAuthor(author),
+                SuccesMessageEnum.AUTHOR_CREATED
         );
     }
 
     public Author findById(@NotNull Long authorId) {
         Optional<Author> author = authorRepository.findById(authorId);
-        if(author.isEmpty()) {
+        if (author.isEmpty()) {
             throw new ApiException(HttpStatus.NOT_FOUND, String.format(ErrorMessageEnum.AUTHOR_NOT_FOUND.getMessage(), authorId));
         }
         return author.get();

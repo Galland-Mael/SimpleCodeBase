@@ -11,6 +11,8 @@ public enum SuccesMessageEnum implements Message {
     DELETED("Deleted"),
 
     AUTHOR_CREATED("Author created successfully"),
+    CLIENT_CREATED("Client created successfully"),
+    LIBRARY_CREATED("LIBRARY created successfully"),
     BOOK_CREATED("Book created successfully");
 
     private String message;

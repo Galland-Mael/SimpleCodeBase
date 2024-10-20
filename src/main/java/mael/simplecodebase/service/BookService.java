@@ -49,8 +49,8 @@ public class BookService {
 
     public BaseResponse<BookDTO> createBaseResponse(BookCreationDTO bookCreation) {
         return new BaseResponse<>(
-                SuccesMessageEnum.BOOK_CREATED,
-                this.createBook(bookCreation)
+                this.createBook(bookCreation),
+                SuccesMessageEnum.BOOK_CREATED
         );
     }
 }

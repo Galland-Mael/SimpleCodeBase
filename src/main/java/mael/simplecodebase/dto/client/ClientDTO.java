@@ -1,9 +1,10 @@
-package mael.simplecodebase.dto;
+package mael.simplecodebase.dto.client;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import mael.simplecodebase.dto.library.LibraryLightDTO;
 import mael.simplecodebase.dto.person.PersonDTO;
 
 

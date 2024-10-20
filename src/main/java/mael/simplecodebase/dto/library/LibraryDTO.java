@@ -1,8 +1,9 @@
-package mael.simplecodebase.dto;
+package mael.simplecodebase.dto.library;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import mael.simplecodebase.dto.client.ClientLightDTO;
 import mael.simplecodebase.dto.book.BookLightDTO;
 
 import java.io.Serial;

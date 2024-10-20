@@ -6,7 +6,11 @@ import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.SettingLiteraryTypeMapper;
 import mael.simplecodebase.model.SettingLiteraryType;
 import mael.simplecodebase.repository.SettingLiteraryTypeRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SettingLiteraryTypeService extends AbstractSettingModelService<
@@ -28,8 +32,7 @@ public class SettingLiteraryTypeService extends AbstractSettingModelService<
         return ErrorMessageEnum.S_LITERAL_TYPE_NOT_FOUND;
     }
 
-
-    public SettingLiteraryTypeDTO findByEnumInDTO(SettingLiteraryTypeEnum settingLiteraryTypeEnum) {
-        return this.baseMapper.toDTO(this.findByEnum(settingLiteraryTypeEnum));
+    public List<SettingLiteraryTypeDTO> findAllInDTO() {
+        return baseMapper.toListDTO(findAll());
     }
 }

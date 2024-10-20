@@ -8,6 +8,7 @@ import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.AbstractSModelMapper;
 import mael.simplecodebase.model.AbstractSettingModel;
 import mael.simplecodebase.repository.AbstractSettingModelRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -41,9 +42,4 @@ public abstract class AbstractSettingModelService<Entity extends AbstractSetting
     public List<Entity> findAll() {
         return baseRepository.findAll();
     }
-
-    public List<Dto> findAllInDTO() {
-        return baseMapper.toListDTO(findAll());
-    }
-
 }

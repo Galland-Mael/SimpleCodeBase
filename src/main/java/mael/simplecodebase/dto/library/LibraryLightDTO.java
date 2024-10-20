@@ -1,4 +1,4 @@
-package mael.simplecodebase.dto;
+package mael.simplecodebase.dto.library;
 
 import lombok.Getter;
 import lombok.Setter;

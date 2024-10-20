@@ -10,7 +10,7 @@ public class BaseResponse<T> {
     private String message;
     private T data;
 
-    public BaseResponse(SuccesMessageEnum message, T data) {
+    public BaseResponse( T data, SuccesMessageEnum message) {
         this.message = message.getMessage();
         this.data = data;
     }

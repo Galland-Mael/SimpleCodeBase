@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import mael.simplecodebase.dto.author.AuthorLightDTO;
-import mael.simplecodebase.dto.LibraryLightDTO;
+import mael.simplecodebase.dto.library.LibraryLightDTO;
 import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
 import mael.simplecodebase.validator.annotation.BookConstraint;
 

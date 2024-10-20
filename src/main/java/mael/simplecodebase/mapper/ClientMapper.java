@@ -1,7 +1,8 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.ClientDTO;
-import mael.simplecodebase.dto.ClientLightDTO;
+import mael.simplecodebase.dto.client.ClientCreationDTO;
+import mael.simplecodebase.dto.client.ClientDTO;
+import mael.simplecodebase.dto.client.ClientLightDTO;
 import mael.simplecodebase.model.Client;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -23,4 +24,8 @@ public interface ClientMapper {
     @Mapping(target = "libraries", ignore = true)
     Client toEntity(ClientLightDTO source);
     ClientLightDTO toLightDTO(Client source);
+    // CreationDTO
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "libraries", ignore = true)
+    Client toEntity(ClientCreationDTO source);
 }
