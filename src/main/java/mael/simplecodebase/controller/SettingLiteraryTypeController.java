@@ -1,7 +1,6 @@
 package mael.simplecodebase.controller;
 
 import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
-import mael.simplecodebase.model.SettingLiteraryType;
 import mael.simplecodebase.service.SettingLiteraryTypeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +20,8 @@ public class SettingLiteraryTypeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SettingLiteraryType>>findAllInDTO() {
-        return ResponseEntity.ok(this.baseService.findAll());
+    public ResponseEntity<List<SettingLiteraryTypeDTO>> findAllInDTO() {
+        return ResponseEntity.ok(this.baseService.findAllInDTO());
     }
-
-
 }
 

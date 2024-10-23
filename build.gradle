@@ -43,6 +43,9 @@ dependencies {
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
     // Validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // Redis cache
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
     // JUnit
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

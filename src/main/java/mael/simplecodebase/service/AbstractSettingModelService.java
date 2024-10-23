@@ -8,38 +8,32 @@ import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.AbstractSModelMapper;
 import mael.simplecodebase.model.AbstractSettingModel;
 import mael.simplecodebase.repository.AbstractSettingModelRepository;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 
-import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractSettingModelService<Entity extends AbstractSettingModel, Dto extends AbstractSettingModelDTO, E extends Enum<E> & CodeEnum, Repository extends AbstractSettingModelRepository<Entity>, Mapper extends AbstractSModelMapper<Entity, Dto>> {
+public abstract class AbstractSettingModelService<M extends AbstractSettingModel, D extends AbstractSettingModelDTO, E extends Enum<E> & CodeEnum, R extends AbstractSettingModelRepository<M>, Y extends AbstractSModelMapper<M, D>> {
 
-    protected Repository baseRepository;
-    protected Mapper baseMapper;
+    protected R baseR;
+    protected Y baseY;
 
-    protected AbstractSettingModelService(Repository baseRepository, Mapper baseMapper) {
-        this.baseRepository = baseRepository;
-        this.baseMapper = baseMapper;
+    protected AbstractSettingModelService(R baseR, Y baseY) {
+        this.baseR = baseR;
+        this.baseY = baseY;
     }
 
     public abstract ErrorMessageEnum notFoundMessage();
 
 
-    public Entity findByCode(String code) {
-        Optional<Entity> entity = baseRepository.findByCode(code);
+    public M findByCode(String code) {
+        Optional<M> entity = baseR.findByCode(code);
         if (entity.isEmpty()) {
             throw new ApiException(HttpStatus.NOT_FOUND, String.format(notFoundMessage().getMessage(), code));
         }
         return entity.get();
     }
 
-    public Entity findByEnum(E enumValue) {
+    public M findByEnum(E enumValue) {
         return findByCode(enumValue.getCode());
-    }
-
-    public List<Entity> findAll() {
-        return baseRepository.findAll();
     }
 }

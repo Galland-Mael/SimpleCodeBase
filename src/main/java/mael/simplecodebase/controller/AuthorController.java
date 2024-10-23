@@ -25,4 +25,5 @@ public class AuthorController {
     public ResponseEntity<BaseResponse<AuthorDTO>> create(@RequestBody @Valid AuthorCreationDTO author) {
         return ResponseEntity.ok(this.authorService.createBaseResponse(author));
     }
+
 }

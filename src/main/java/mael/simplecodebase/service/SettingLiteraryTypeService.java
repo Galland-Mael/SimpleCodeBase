@@ -1,6 +1,7 @@
 package mael.simplecodebase.service;
 
 import mael.simplecodebase.dto.SettingLiteraryTypeDTO;
+import mael.simplecodebase.config.CacheName;
 import mael.simplecodebase.enumeration.SettingLiteraryTypeEnum;
 import mael.simplecodebase.exception.ErrorMessageEnum;
 import mael.simplecodebase.mapper.SettingLiteraryTypeMapper;
@@ -32,7 +33,12 @@ public class SettingLiteraryTypeService extends AbstractSettingModelService<
         return ErrorMessageEnum.S_LITERAL_TYPE_NOT_FOUND;
     }
 
+    @Cacheable(value = CacheName.SETTING_LITERARY_TYPE_DTO)
     public List<SettingLiteraryTypeDTO> findAllInDTO() {
-        return baseMapper.toListDTO(findAll());
+        return baseY.toListDTO(findAll());
+    }
+
+    public List<SettingLiteraryType> findAll() {
+        return new ArrayList<>(baseR.findAll());
     }
 }
