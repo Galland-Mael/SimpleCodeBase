@@ -12,7 +12,10 @@ public enum ErrorMessageEnum implements Message {
     UNAUTHORIZED("Unauthorized"),
 
     S_LITERAL_TYPE_NOT_FOUND("SLiteraryType Not Found code :  %s"),
-    AUTHOR_NOT_FOUND("Auhtor Not Found id :  %s");
+    AUTHOR_NOT_FOUND("Auhtor Not Found id :  %s"),
+    BOOK_NOT_FOUND("Book Not Found id :  %s"),
+    CLIENT_NOT_FOUND("Client Not Found id :  %s"),
+    LIBRARY_NOT_FOUND("Library Not Found id :  %s");
 
     private String message;
 }

@@ -1,12 +1,15 @@
 package mael.simplecodebase.mapper;
 
+import jakarta.validation.Valid;
 import mael.simplecodebase.dto.client.ClientCreateDTO;
 import mael.simplecodebase.dto.client.ClientDTO;
 import mael.simplecodebase.dto.client.ClientLightDTO;
+import mael.simplecodebase.dto.client.ClientUpdateDTO;
 import mael.simplecodebase.model.Client;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(
@@ -28,4 +31,8 @@ public interface ClientMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "libraries", ignore = true)
     Client toEntity(ClientCreateDTO source);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "libraries", ignore = true)
+    Client updateEntity(@MappingTarget Client clientToUpdate, @Valid ClientUpdateDTO client);
 }

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,24 +35,21 @@ public class AuthorService {
         this.bookService = bookService;
     }
 
-    public AuthorDTO createAuthor(AuthorCreateDTO authorCreation) {
+    public Author createAuthor(AuthorCreateDTO authorCreation) {
         Author author = authorMapper.toEntity(authorCreation);
-        if (authorCreation.getBooksIds() != null && !authorCreation.getBooksIds().isEmpty()) {
-            author.setBooks(this.bookService.findAllById(authorCreation.getBooksIds()));
-        }
-        return authorMapper.toDTO(authorRepository.save(author));
+        this.assignBooksToAuthor(author, authorCreation.getBooksIds());
+        return authorRepository.save(author);
     }
 
     public BaseResponse<AuthorDTO> createBaseResponse(AuthorCreateDTO author) {
         return new BaseResponse<>(
-                this.createAuthor(author),
+                authorMapper.toDTO(this.createAuthor(author)),
                 SuccesMessageEnum.AUTHOR_CREATED
         );
     }
 
     public SuccesMessageEnum deleteAuthor(Long authorId) {
-        Author author = this.findById(authorId);
-        authorRepository.delete(author);
+        authorRepository.deleteById(authorId);
         return SuccesMessageEnum.AUTHOR_DELETED;
     }
 
@@ -65,19 +63,23 @@ public class AuthorService {
 
     public BaseResponse<AuthorDTO> updateBaseResponse(Long id, @Valid AuthorUpdateDTO author) {
         return new BaseResponse<>(
-                this.updateAuthor(id, author),
+                authorMapper.toDTO(this.updateAuthor(id, author)),
                 SuccesMessageEnum.AUTHOR_UPDATED
         );
     }
 
-    private AuthorDTO updateAuthor(Long id, @Valid AuthorUpdateDTO author) {
+    private Author updateAuthor(Long id, @Valid AuthorUpdateDTO author) {
         Author authorToUpdate = this.findById(id);
         authorToUpdate = authorMapper.updateEntity(authorToUpdate, author);
-        if (author.getBooksIds() != null && !author.getBooksIds().isEmpty()) {
-            authorToUpdate.setBooks(this.bookService.findAllById(author.getBooksIds()));
+        this.assignBooksToAuthor(authorToUpdate, author.getBooksIds());
+       return authorRepository.save(authorToUpdate);
+    }
+
+    private void assignBooksToAuthor(Author author, List<Long> booksIds) {
+        if (booksIds != null && !booksIds.isEmpty()) {
+            author.setBooks(this.bookService.findAllById(booksIds));
         } else {
-            authorToUpdate.setBooks(null);
+            author.setBooks(null);
         }
-       return authorMapper.toDTO(authorRepository.save(authorToUpdate));
     }
 }

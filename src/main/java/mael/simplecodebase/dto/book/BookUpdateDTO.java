@@ -14,9 +14,10 @@ import java.util.List;
 @Getter
 @Setter
 @BookConstraint
-public class BookCreateDTO implements Serializable {
+public class BookUpdateDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
+    private Long id;
     @NotNull
     private String title;
     private String description;

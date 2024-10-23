@@ -36,6 +36,6 @@ public class Book implements Serializable {
     private SettingLiteraryType settingLiteraryType;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH, optional = false)
     private Author author;
-    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.DETACH)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "books", cascade = CascadeType.DETACH)
     private List<Library> libraries;
 }
