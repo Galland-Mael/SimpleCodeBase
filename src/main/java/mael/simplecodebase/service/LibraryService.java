@@ -1,7 +1,7 @@
 package mael.simplecodebase.service;
 
 import jakarta.validation.Valid;
-import mael.simplecodebase.dto.library.LibraryCreationDTO;
+import mael.simplecodebase.dto.library.LibraryCreateDTO;
 import mael.simplecodebase.dto.library.LibraryDTO;
 import mael.simplecodebase.exception.SuccesMessageEnum;
 import mael.simplecodebase.mapper.LibraryMapper;
@@ -35,7 +35,7 @@ public class LibraryService {
     }
 
 
-    public LibraryDTO create(LibraryCreationDTO library) {
+    public LibraryDTO create(LibraryCreateDTO library) {
         Library libraryEntity = libraryMapper.toEntity(library);
         if (library.getBooksIds() != null && !library.getBooksIds().isEmpty()) {
             libraryEntity.setBooks(this.bookService.findAllById(library.getBooksIds()));
@@ -46,7 +46,7 @@ public class LibraryService {
         return libraryMapper.toDTO(libraryRepository.save(libraryEntity));
     }
 
-    public BaseResponse<LibraryDTO> createBaseResponse(@Valid LibraryCreationDTO library) {
+    public BaseResponse<LibraryDTO> createBaseResponse(@Valid LibraryCreateDTO library) {
         return new BaseResponse<>(
                 create(library),
                 SuccesMessageEnum.BOOK_CREATED

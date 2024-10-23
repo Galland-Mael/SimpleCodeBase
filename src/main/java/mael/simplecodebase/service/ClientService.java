@@ -1,7 +1,7 @@
 package mael.simplecodebase.service;
 
 import jakarta.validation.Valid;
-import mael.simplecodebase.dto.client.ClientCreationDTO;
+import mael.simplecodebase.dto.client.ClientCreateDTO;
 import mael.simplecodebase.dto.client.ClientDTO;
 import mael.simplecodebase.exception.SuccesMessageEnum;
 import mael.simplecodebase.mapper.ClientMapper;
@@ -33,14 +33,14 @@ public class ClientService {
         return clientRepository.findAllById(ids);
     }
 
-    public BaseResponse<ClientDTO> createBaseResponse(@Valid ClientCreationDTO client) {
+    public BaseResponse<ClientDTO> createBaseResponse(@Valid ClientCreateDTO client) {
         return new BaseResponse<>(
                 create(client),
                 SuccesMessageEnum.CLIENT_CREATED
         );
     }
 
-    public ClientDTO create(ClientCreationDTO clientDTO) {
+    public ClientDTO create(ClientCreateDTO clientDTO) {
         Client client = clientMapper.toEntity(clientDTO);
         if(clientDTO.getLibrariesIds() != null && !clientDTO.getLibrariesIds().isEmpty()) {
             client.setLibraries(this.libraryService.findAllById(clientDTO.getLibrariesIds()));

@@ -1,7 +1,7 @@
 package mael.simplecodebase.controller;
 
 import jakarta.validation.Valid;
-import mael.simplecodebase.dto.client.ClientCreationDTO;
+import mael.simplecodebase.dto.client.ClientCreateDTO;
 import mael.simplecodebase.dto.client.ClientDTO;
 import mael.simplecodebase.response.BaseResponse;
 import mael.simplecodebase.service.ClientService;
@@ -21,7 +21,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<BaseResponse<ClientDTO>> create(@RequestBody @Valid ClientCreationDTO client) {
+    public ResponseEntity<BaseResponse<ClientDTO>> create(@RequestBody @Valid ClientCreateDTO client) {
         return ResponseEntity.ok(clientService.createBaseResponse(client));
     }
 }

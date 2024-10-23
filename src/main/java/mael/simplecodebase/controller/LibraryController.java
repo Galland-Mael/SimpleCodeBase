@@ -1,7 +1,7 @@
 package mael.simplecodebase.controller;
 
 import jakarta.validation.Valid;
-import mael.simplecodebase.dto.library.LibraryCreationDTO;
+import mael.simplecodebase.dto.library.LibraryCreateDTO;
 import mael.simplecodebase.dto.library.LibraryDTO;
 import mael.simplecodebase.response.BaseResponse;
 import mael.simplecodebase.service.LibraryService;
@@ -21,7 +21,7 @@ public class LibraryController {
     }
 
     @PostMapping
-    public ResponseEntity<BaseResponse<LibraryDTO>> create(@RequestBody @Valid LibraryCreationDTO library) {
+    public ResponseEntity<BaseResponse<LibraryDTO>> create(@RequestBody @Valid LibraryCreateDTO library) {
         return ResponseEntity.ok(libraryService.createBaseResponse(library));
     }
 }

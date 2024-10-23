@@ -1,6 +1,6 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.library.LibraryCreationDTO;
+import mael.simplecodebase.dto.library.LibraryCreateDTO;
 import mael.simplecodebase.dto.library.LibraryDTO;
 import mael.simplecodebase.dto.library.LibraryLightDTO;
 import mael.simplecodebase.model.Library;
@@ -30,6 +30,6 @@ public interface LibraryMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "clients", ignore = true)
     @Mapping(target = "books", ignore = true)
-    Library toEntity(LibraryCreationDTO source);
+    Library toEntity(LibraryCreateDTO source);
 
 }

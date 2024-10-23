@@ -12,7 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ClientCreationDTO extends PersonDTO implements Serializable {
+public class ClientCreateDTO extends PersonDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @NotNull

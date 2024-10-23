@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @BookConstraint
-public class BookCreationDTO implements Serializable {
+public class BookCreateDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private Long id;
@@ -28,6 +28,6 @@ public class BookCreationDTO implements Serializable {
     @NotNull
     private Long authorId;
     @NotNull
-    private SettingLiteraryTypeEnum settingLiteraryTypeEnum;
+    private SettingLiteraryTypeEnum settingLiteraryType;
     private List<Long> librariesIds;
 }

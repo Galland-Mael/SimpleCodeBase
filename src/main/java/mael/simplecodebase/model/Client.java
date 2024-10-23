@@ -9,13 +9,14 @@ import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "client")
-public class Client extends Person {
+public class Client extends Person implements Serializable {
     @Email
     @Column(nullable = false)
     private String email;

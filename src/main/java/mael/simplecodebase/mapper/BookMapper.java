@@ -1,10 +1,8 @@
 package mael.simplecodebase.mapper;
 
-import mael.simplecodebase.dto.author.AuthorCreationDTO;
-import mael.simplecodebase.dto.book.BookCreationDTO;
+import mael.simplecodebase.dto.book.BookCreateDTO;
 import mael.simplecodebase.dto.book.BookDTO;
 import mael.simplecodebase.dto.book.BookLightDTO;
-import mael.simplecodebase.model.Author;
 import mael.simplecodebase.model.Book;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -26,7 +24,6 @@ public interface BookMapper {
     // LightDTO
     @Mapping(target = "author", ignore = true)
     @Mapping(target = "libraries", ignore = true)
-    @Mapping(target = "settingLiteraryType", ignore = true)
     Book toEntity(BookLightDTO source);
     BookLightDTO toLightDTO(Book source);
 
@@ -35,5 +32,5 @@ public interface BookMapper {
     @Mapping(target = "settingLiteraryType", ignore = true)
     @Mapping(target = "author", ignore = true)
     @Mapping(target = "libraries", ignore = true)
-    Book toEntity(BookCreationDTO source);
+    Book toEntity(BookCreateDTO source);
 }

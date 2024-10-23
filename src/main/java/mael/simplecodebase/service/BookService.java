@@ -1,6 +1,6 @@
 package mael.simplecodebase.service;
 
-import mael.simplecodebase.dto.book.BookCreationDTO;
+import mael.simplecodebase.dto.book.BookCreateDTO;
 import mael.simplecodebase.dto.book.BookDTO;
 import mael.simplecodebase.exception.SuccesMessageEnum;
 import mael.simplecodebase.mapper.BookMapper;
@@ -33,7 +33,7 @@ public class BookService {
         return bookRepository.findAllById(ids);
     }
 
-    public BookDTO createBook(BookCreationDTO bookCreation) {
+    public BookDTO createBook(BookCreateDTO bookCreation) {
         Book book = bookMapper.toEntity(bookCreation);
         if(bookCreation.getAuthorId() != null) {
             book.setAuthor(this.authorService.findById(bookCreation.getAuthorId()));
@@ -41,13 +41,13 @@ public class BookService {
         if(bookCreation.getLibrariesIds() != null && !bookCreation.getLibrariesIds().isEmpty()) {
             book.setLibraries(this.libraryService.findAllById(bookCreation.getLibrariesIds()));
         }
-        if(bookCreation.getSettingLiteraryTypeEnum() != null) {
-            book.setSettingLiteraryType(this.settingLiteraryTypeService.findByEnum(bookCreation.getSettingLiteraryTypeEnum()));
+        if(bookCreation.getSettingLiteraryType() != null) {
+            book.setSettingLiteraryType(this.settingLiteraryTypeService.findByEnum(bookCreation.getSettingLiteraryType()));
         }
        return this.bookMapper.toDTO(bookRepository.save(book));
     }
 
-    public BaseResponse<BookDTO> createBaseResponse(BookCreationDTO bookCreation) {
+    public BaseResponse<BookDTO> createBaseResponse(BookCreateDTO bookCreation) {
         return new BaseResponse<>(
                 this.createBook(bookCreation),
                 SuccesMessageEnum.BOOK_CREATED
